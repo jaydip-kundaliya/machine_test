@@ -10,6 +10,7 @@ class MachineTestApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       initialBinding: CalenderBinding(),
       getPages: RoutePages.routePages(),
       initialRoute: RoutePages.initialPage,
