@@ -62,6 +62,7 @@ class CalendarPage extends StatelessWidget {
     showDialog(
       context: context,
       builder: (context) => DialogModel(
+        title: 'Year',
         list: CalenderRepo().availableYears,
         onItemClick: (value) {
           calenderController.changeCurrentYear(value);
@@ -75,6 +76,7 @@ class CalendarPage extends StatelessWidget {
     showDialog(
       context: context,
       builder: (context) => DialogModel(
+        title: 'Year',
         list: CalenderRepo().months,
         onItemClick: (value) {
           calenderController
