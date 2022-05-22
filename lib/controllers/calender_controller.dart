@@ -56,11 +56,14 @@ class CalenderController extends GetxController {
   void clearEditingController() {
     titleTextController.clear();
     descriptionTextController.clear();
+    timeTextController.clear();
   }
 
   void autoFillUpEditingController(EventModel eventModel) {
     titleTextController.text = eventModel.title ?? '';
     descriptionTextController.text = eventModel.description ?? '';
+    timeTextController.text =
+        '${eventModel.dateTime!.hour}:${eventModel.dateTime!.minute}';
   }
 
   void arrangeDays() {
@@ -70,7 +73,13 @@ class CalenderController extends GetxController {
   }
 
   Future<void> saveEventFun(int day) async {
-    final newDateTime = DateTime(currentYear.value, currentMonth.value, day);
+    final newDateTime = DateTime(
+      currentYear.value,
+      currentMonth.value,
+      day,
+      int.parse(timeTextController.text.split(':').first),
+      int.parse(timeTextController.text.split(':').last),
+    );
     final event = EventModel(
       title: titleTextController.text,
       description: descriptionTextController.text,
