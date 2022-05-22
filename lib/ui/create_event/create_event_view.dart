@@ -21,7 +21,20 @@ class CreateEventView extends StatelessWidget {
     final calenderCtr = CalenderController.calenderController;
     DateTime selectedDate = _initializeArguments(calenderCtr);
     return Scaffold(
-      appBar: const BaseAppBar(title: 'Event Details'),
+      appBar: BaseAppBar(
+        title: 'Event Details',
+        leading: Center(
+          child: InkWell(
+            onTap: () {
+              Get.back();
+            },
+            child: Text(
+              'Back',
+              style: AppTextStyle.poppins(fontSize: 18),
+            ),
+          ),
+        ),
+      ),
       body: Padding(
         padding: const EdgeInsets.symmetric(
           horizontal: 15.0,
